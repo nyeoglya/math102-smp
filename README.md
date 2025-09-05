@@ -4,7 +4,7 @@
 
 **math-102 SMP directory by *hyunseong*, POSTECH 24**
 
-There is a [Lecture Note](https://github.com/nyeoglya/math102-smp/blob/main/math102.pdf) that introduces all the key concepts covered in the math102 course. Please note that this document does not finished and it does not introduce everything.
+There is a [Lecture Note](https://github.com/nyeoglya/math102-smp/blob/main/math102.pdf) that introduces all the key concepts covered in the math102 course. Please note that this document is not complete and does not cover everything in the textbook of MATH102 class.
 
 Any suggestions for improvement are welcome.
 
