@@ -1,0 +1,129 @@
+\section{미분의 활용}
+이 챕터는, 미분을 활용하여 다변수함수의 극값을 찾는 방법에 대해 다룬다. 또한, 다변수함수를 적당한 n차 함수로 근사하는 방법에 대해서도 다루게 된다.
+
+\subsection{다변수함수의 고계도미분}
+클레로의 정리에 의해, 우리는 $f(x,y)$ 꼴의 함수가 $C^2$이면, $f_{xy} = f_{yx}$가 성립함을 알고 있다.
+
+\begin{definition}[n번 연속미분]
+함수 $f: \R^k \to \R$이 n번 연속미분가능(continuously differentiable)이라는 것은 이 함수가 모든 가능한 조합의 n계 편도함수를 가지고, 각각이 연속일 때이다. 이러한 함수 f를 $C^n$ 함수라고 한다.
+\end{definition}
+
+\begin{theorem}[클레로의 정리 2, Clairaut Theorem 2]
+$f: \R^k \to \R$가 $C^n$ 함수라고 하자. 그러면 $f$의 $l$계 편도함수($l \leq n$)는 각 변수의 편미분 횟수에만 의존한다.
+\end{theorem}
+
+\subsection{2변수함수의 극값}
+
+1변수 함수에서 그랬던 것처럼, 다변수 함수에서도 극값이 존재한다.
+
+\begin{definition}[극값]
+함수 $f: D \subseteq \R^n \to R$에 대해, $A \in D$에서 함수 f가 극솟값(local minimum)을 갖는다는 것은 A를 중심으로 하는 개집합이 존재하여 그 집합 안의 모든 점 X에 대해 $f(X) \geq f(A)$인 것이다. 반대로, A에서 함수가 극댓값(local maximum)을 갖는다는 것은 A를 중심으로 하는 개집합이 존재하여 그 집합 안의 모든 점 X에 대해 $f(X) \leq f(A)$인 것이다. 극댓값과 극솟값을 합쳐서 극값(local extremum)이라고 부른다. 만약, $X \neq A$인 영역에서 부등호에서 등호가 빠진 형태라면($f(X) > f(A)$ 또는 $f(X) < f(A)$) 엄격한(strict)라고 한다.
+\end{definition}
+
+\begin{theorem}[1계도미분 판정법, 1st Derivative Test]
+$f: D \subseteq \R^n \to R$이 미분가능하다고 하자. $f$가 내부 점(interior point) $A \in D$에 대해 $f(A)$가 극댓값이라고 할 때, $\nabla f(A)=0$이다.
+\end{theorem}
+
+\begin{definition}[헤세 행렬]
+$f: D \subseteq \R^n \to \R$가 $C^2$ 함수라고 하자. $(x_1,\cdots,x_n)$에서 정의되는 다음의 $n \times n$ 행렬을 $f$의 $(x_1,\cdots,x_n)$에서의 헤세 행렬(hessian matrix)이라고 한다.
+\begin{equation*}
+\mathcal{H}f(x_1,\cdots,x_n)=
+\begin{pmatrix}
+f_{x_1x_1} & f_{x_1x_2} & \cdots & f_{x_1x_n} \\
+f_{x_2x_1} & f_{x_2x_2} & \cdots & f_{x_2x_n} \\
+\vdots & & & \vdots  \\\
+f_{x_nx_1} & f_{x_nx_2} & \cdots & f_{x_nx_n} \\
+\end{pmatrix}
+\end{equation*}
+\end{definition}
+
+헤세 행렬은 대칭 행렬(symmetric matrix)이다.
+
+\begin{definition}[양정 행렬]
+$2 \times 2$ 대칭행렬 S가 양정(positive definite) 행렬이라는 것은 다음을 만족하는 것이다.
+\begin{equation*}
+S=
+\begin{pmatrix}
+p & q \\
+q & r \\
+\end{pmatrix}
+\end{equation*}
+$$S(u,v)=U \cdot SU > 0 \quad\text{forall }\; U=(u,v) \neq 0$$
+만약, $-S$가 양정 행렬이라면, $S$는 음정(negative definite) 행렬이다. 두 경우가 아닌 경우, S는 부정(indefinite) 행렬이다.
+\end{definition}
+
+\begin{theorem}
+$S = \begin{pmatrix} p & q \\ q & r \end{pmatrix}$가 양정 행렬일 필요충분조건은  모든 $(u,v) \in \R^2$에 대해 다음이 성립하는 $m>0$이 존재하는 것이다.
+$$
+S(u,v)=(u,v) \cdot \begin{pmatrix} p & q \\ q & r \end{pmatrix} \cdot \begin{pmatrix} u \\ v \end{pmatrix} = pu^2 + 2quv + rv^2 \geq m(u^2+v^2)
+$$
+\end{theorem}
+
+\begin{theorem}
+대칭 행렬 S가 양정 행렬이고, $U = (u,v) \in \R^2$에 대해 다음이 성립한다고 하자.
+$$
+S(u,v)=U \cdot SU \geq m(u^2 + v^2)
+$$
+그러면, 충분히 작은 원소들을 갖는 $T$에 대해, $S+T$가 대칭 행렬이면, 다음이 성립한다.
+$$
+(S+T)(u,v)=U \cdot(S+T) U \geq \frac{m}{2}(u^2+v^2)
+$$
+\end{theorem}
+
+\begin{theorem}[2계도미분 판정법 1, 2nd Derivative Test 1]
+$f: D \subseteq \R^2$가 $C^2$ 함수이고, D의 내부 점(interior point) $(c,d)$에 대해, $\nabla f(c,d)=0$이라고 하자. 그러면 헤세 행렬 $\mathcal{H}f(c,d)$에 대해,
+\begin{enumerate}[label=(\alph*)]
+    \item $\mathcal{H}f(c,d)$가 양정 행렬이면, f는 (c,d)에서 엄격한 극솟값을 갖는다.
+    \item $\mathcal{H}f(c,d)$가 음정 행렬이면, f는 (c,d)에서 엄격한 극댓값을 갖는다.
+    \item $\mathcal{H}f(c,d)$가 부정 행렬이면, f는 (c,d)에서 극값을 갖지 않는다.
+\end{enumerate}
+\end{theorem}
+
+\begin{theorem}
+대칭 행렬 $S = \begin{pmatrix} p & q \\ q & r \end{pmatrix}$은 $p>0 \quad \text{and}\quad pr-q^2>0$이면 양정 행렬이다. 반면, $p<0 \quad \text{and}\quad pr-q^2>0$이면 음정 행렬이며, $pr-q^2>0$이면 부정 행렬이다.
+\end{theorem}
+
+\subsection{다변수함수의 극값}
+
+\begin{theorem}[테일러 정리, Taylor Theorem]
+$f: \R^n \to \R이 A \in R^n$ 근처에서 $C^{m+1}$ 함수라고 하자. 그러면,
+$$
+f(A+H)=f(A) + \sum_{i_1=1}^n h_{i_1} f_{x_{i_1}}(A) + \frac{1}{2}\sum_{i_1, i_2=1}^n h_{i_1}h_{i_2} f_{x_{i_1} x_{i_2}}(A) + \cdots + \frac{1}{m!}\sum_{i_1, \cdots, i_m=1}^n (h_{i_1} \cdots h_{i_m}) f_{x_{i_1} \cdots x_{i_m}}(A) + R_m(A, H)
+$$
+가 성립한다. 여기서 어떤 k에 대해 $|R_m(A,H) \leq k||H||^{m+1}$이다. 나머지 항 $R_m$은 $||H||^m$보다 빠르게 0에 다가간다. ($0<\frac{|R_m(A,H)|}{||H||^m}<k||H||$)
+\end{theorem}
+
+테일러 정리는 임의의 $C^{n+1}$ 함수를 n차 함수로 근사하는 방법에 대해 다룬다. 즉, 다변수함수의 미분에 대해 공부하며 다뤘던 선형 근사(linear approximation)의 보다 일반화된 버전이다. 근사를 할 때 가장 중요한 것 중 하나는 실제 함수와 근사된 함수의 차이이다. 위 정리에서는 그 차이를 나머지 항 $R_m$을 통해 제시한다.
+
+\begin{theorem}[2계도미분 판정법 2, 2nd Derivative Test 2]
+$f$가 $A$를 포함하는 $\R^n$ 영역에서 $C^3$ 함수라고 하자. 만약 $A$에서 $\nabla f(A)=0$이고, 헤세 행렬이 양정 행렬이면, f는 A에서 극솟값을 갖는다.
+\end{theorem}
+
+\begin{theorem}
+$f$가 $A$를 포함하는 $\R^n$ 영역에서 $C^3$ 함수라고 하자. 만약 $A$에서 $\nabla f(A)=0$이고, 헤세 행렬이 양정 행렬이면, 1차 테일러 근사
+$$
+f(A+H) \approx p_1(A+H) = f(A) + \nabla f(A) \cdot H
+$$
+는 충분히 작은 H에 대해 $f(A+H) \geq p_1(A+H)$가 성립한다.
+\end{theorem}
+
+\begin{theorem}
+행렬 $M=[m_{ij}]$가 $n \times n$ 대칭 행렬이라고 하자. 다음이 모두 양수면, M은 양정 행렬이다.
+$$
+m_{11}, \quad \det \begin{pmatrix}
+m_{11} & m_{12} \\ m_{21} & m_{22}
+\end{pmatrix}, \quad \cdots, \quad \det M
+$$
+\end{theorem}
+
+\subsection{라그랑주 승수법}
+극댓값 정리는 유계이고 닫힌 집합에서 정의된 연속 함수가 극댓값과 극솟값을 가짐을 보장해준다. 함수를 미분하여 0이 되는 지점을 찾으면 이러한 극값들을 찾을 수가 있다. 아래의 정리는 이 결과를 다변수함수로 확장한 결과이다.
+
+\begin{theorem}[라그랑주 승수법, Lagrange Multiplier Method]
+함수 f, g가 $\R^3 \to \R$이고 $C^1$ 함수라고 하자. 레벨 집합 S가 $g(x,y,z)=c$로 정의되었다고 하자. P가
+\begin{enumerate}[label=(\alph*)]
+    \item $\nabla g(P) \neq 0$
+    \item f가 S의 P 위에서 극댓값을 가진다.
+\end{enumerate}
+를 만족하면 $\nabla f(P) = \lambda \nabla g(P)$를 만족하는 숫자 $\lambda$가 존재한다. 이러한 $\lambda$를 라그랑주 승수(lagrange multiplier)라고 부른다.
+\end{theorem}

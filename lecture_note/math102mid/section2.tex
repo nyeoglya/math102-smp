@@ -1,0 +1,187 @@
+\section{함수}
+
+이 챕터는, 다변수 함수와 그 연속에 대해 다룬다. 연속의 정의는 1변수함수에서 $\epsilon-\delta$를 이용해 정의했던 것과 유사하게 정의된다. 또한, 이 챕터는 우리가 기존에 잘 알고 사용하던 직교좌표계와는 다른, 3가지 종류의 새로운 좌표계에 대해서도 다룬다. 이 좌표계들은 나중에 적분을 할 때 중요하게 사용된다.
+
+\subsection{다변수함수}
+
+우리는 벡터 $X \in \R^n$을 $\R^m$의 한 벡터로 옮기는 다변수함수 $F$를 $F:D \subseteq \R^n \to \R^m$와 같이 표기한다. 여기서 $D$는 정의역(domain)이다. $F(D)$는 치역(range)로 집합의 각 원소를 함수 F에 넣어 옮긴 결과를 모았다고 생각하면 된다.\\
+만약, $U=V$일 때만 $F(U)=F(V)$가 성립하면 이 함수 $F$를 단사(onto 또는 surjective)라고 한다. $F$가 $D \to B$일 때, $F(D)=B$이면, 이 함수를 전사(one-to-one 또는 injective)라고 한다.
+
+\begin{definition}[다변수 함수]
+함수 $F:D \subseteq \R^n \to \R^m$은 각 $X \in D$를 $F(X) \in \R^m$으로 대응하는 함수로,
+$$F(X)=(f_1(X),f_2(X),\cdots,f_m(X))$$
+와 같이 쓴다. 각 함수 $f_j$는 $F$의 $j$번째 원소 함수(j-th component function)라고 한다.
+\end{definition}
+
+\begin{definition}[상수 함수]
+함수 $F: D \subseteq \R^n \to \R^m$이 모든 $X \in \R^n$에 대해, $F(X)=C$이면 ($C \in \R^m$) $F$를 상수 함수(constant function)라고 한다.
+\end{definition}
+
+\begin{definition}[선형 함수]
+함수 $L: \R^n \to \R^m$이 선형 함수(linear function)라는 것은 모든 벡터 $U, V \in \R^n$과 실수 $a \in \R$에 대해
+\begin{enumerate}
+    \item $aL(U)=L(aU)$
+    \item $L(U+V)=L(U)+L(V)$
+\end{enumerate}
+를 만족하는 것이다.
+\end{definition}
+
+\begin{theorem}
+모든 선형 함수 $L: \R^n \to \R^m$은 다음과 같은 형태로 쓰일 수 있다.
+\begin{equation*}
+L(X)=\begin{pmatrix}
+    c_{11} & \cdots & c_{1n} \\
+    \vdots &  & \vdots \\
+    c_{m1} & \cdots & c_{mn}
+\end{pmatrix}
+\begin{pmatrix}
+x_1 \\ x_2 \\ x_3
+\end{pmatrix}
+=CX
+\end{equation*}
+여기서 C는 L의 행렬 혹은 L을 표현하는 행렬이라고 한다.
+\end{theorem}
+
+\begin{definition}[행렬 노름]
+행렬 $C=[c_{ij}]$에 대해, C의 노름(norm) $||C||$은 다음과 같이 정의된다.
+$$||C||=\sqrt{\sum_{i=1}^m \sum_{i=1}^n c_{ij}^2}$$
+\end{definition}
+
+\begin{theorem}
+C를 $m \times n$ 행렬이라고 하자. 그러면, 모든 벡터 $X \in \R^n$에 대해 다음이 성립한다.
+$$||CX|| \leq ||C|| \cdot ||X||$$
+\end{theorem}
+
+\begin{definition}[레벨 집합]
+함수 $f: D \subseteq \R^n \to \R$과 실수 $c \in \R$에 대해, $f(X)=c$를 만족하는 D 내의 모든 벡터 X의 집합을 f의 c 레벨집합(level set)이라고 한다.
+\end{definition}
+
+\begin{definition}[함수 합성]
+함수 $F: \R^m \to \R^n$이고, G$: \R^k \to \R^m$이라고 하자. G의 치역이 F의 정의역에 포함되어 있다고 하자. 그러면, 다음을 F와 G의 합성 함수(composite function)라고 한다.
+$$(F \circ G) (X) = F(G(X))$$
+여기서 $F \circ G : \R^k \to \R^n$이다.
+\end{definition}
+
+\subsection{연속}
+\begin{definition}[함수의 연속]
+함수 $F:D \subseteq \R^n \to \R^m$이 $X \in D$에서 연속(continuous)이라는 것은 모든 $\epsilon >0$에 대해, 적당한 $\delta >0$가 존재하여,
+$$\text{if } ||X-Y|| < \delta \quad \text{then} \quad ||F(X)-F(Y)||<\epsilon$$
+인 것이다.
+\end{definition}
+
+함수 F가 어떠한 집합 D의 모든 점에서 연속이면, F가 D에서 연속이라고 한다.
+
+\begin{definition}[수열의 수렴]
+수열 $X_1, \cdots, X_k, \cdots \in \R^n$이 $X$로 수렴(converge)한다는 것은 모든 $\epsilon >0$에 대해, 적당한 $N > 0$이 존재하여,
+$$\text{if } k > N \quad \text{then} \quad ||X_k - X||<\epsilon$$
+인 것이다.
+\end{definition}
+
+\begin{theorem}
+함수 $F: D \subseteq \R^n \to \R^m$이 D에서 연속이면, X로 수렴하는 수열 $\{X_n\}$에 대해, $\{F(X_n)\}$가 $F(X)$로 수렴한다.
+\end{theorem}
+
+\begin{theorem}
+함수 $F: D \subseteq \R^n \to \R^m$인 $F(X)=(f_1(X),\cdots,f_m(X))$가 연속일 필요충분조건은 각 함수 $f_i$가 전부 연속인 것이다.
+\end{theorem}
+
+1변수 함수와 유사하게, 함수의 덧셈과 곱셈, 그리고 0이 아닌 지점에서 나눗셈, 연속인 두 함수를 합성한 함수 또한 연속이다.
+
+\begin{definition}[곡선]
+연속함수 $X: I \subseteq \R \to \R^n$의 치역을 곡선(curve)이라고 한다. 이 함수 $X$를 곡선의 매개변수화(parametrization)라고 한다. 만약 $I=[a,b]$ 꼴이면, $X(a), X(b)$를 곡선의 끝점(end point)이라고 한다. 만약 $X(a)=X(b)$이면, 우리는 곡선이 닫혀있고(closed) 고리(loop)를 형성한다고 한다.
+\end{definition}
+
+\begin{definition}[연결된 집합]
+$A \subseteq \R^n$이 연결(connected)되었다는 것은 모든 $P, Q \in A$에 대해, 둘을 끝점으로 하는 곡선이 $A$ 안에 존재해야 한다.
+\end{definition}
+
+\begin{definition}[열린 공]
+$\R^n$에서 반지름이 $r>0$인 열린 공(open ball)은 어떤 점 $A \in \R^n$을 중심으로 하고 거리가 $r$ 미만인 모든 점 $X$의 집합이다. 즉, 다음을 만족하는 모든 점 $X$이다.
+$$
+||X-A||<r
+$$
+\end{definition}
+
+\begin{definition}[내부 점]
+$D \subseteq \R^n$의 점 $A$가 내부 점(interior point)이라는 것은, $A$를 중심으로 하는 열린 공이 존재하여 그 공이 $D$ 안에 들어있는 경우이다. $D$의 내부는 이러한 내부 점들의 집합이다.
+\end{definition}
+
+\begin{definition}[열린 집합]
+집합 $D$가 열렸다(open)는 것은 $D$의 모든 점이 내부 점인 경우이다.
+\end{definition}
+
+\begin{definition}[경계 점]
+$D \subseteq \R^n$의 점 $A$가 경계 점(boundary point)이라는 것은 $A$를 중심으로 하는 모든 열린 공에 대해, 그 공이 $D$ 내부의 점과 외부의 점을 동시에 포함하는 경우이다. $D$의 경계는 이러한 경계 점을 전부 모은 집합이며, $\partial D$로 표기한다.
+\end{definition}
+
+\begin{definition}[닫힌 집합]
+집합 $D$가 닫혔다(close)는 것은 그것이 모든 경계 점을 포함하는 경우이다. $D$의 폐쇄(closure)는 $D$와 $\partial D$의 합집합이다. $D$의 폐쇄는 $\bar D$로 표기한다.
+\end{definition}
+
+\begin{theorem}
+집합 $D$의 폐쇄 $\bar D$는 닫힌 집합이다.
+\end{theorem}
+
+\begin{theorem}
+열린 집합의 여집합은 닫힌 집합이다. 반대도 성립한다.
+\end{theorem}
+
+\begin{definition}[유계]
+$D \in \R^n$이 유계(bounded)라는 것은 어떠한 숫자 $b$가 존재하여, 모든 $X \in D$에 대해 다음을 만족하는 것이다.
+$$
+||X|| < b
+$$
+\end{definition}
+
+\begin{theorem}
+만약 점들의 수열 $\{X_n\}$이 닫힌 집합 $C \in \R^n$에 속해있고, $X$로 수렴한다면, $X \in C$이다.
+\end{theorem}
+
+\begin{theorem}[최대 최소 정리, Extreme Value Theorem]
+닫혀있고 유계인 집합 $C$에서 정의된 연속 함수 $f: C \subseteq \R^n \to \R$은 어떤 $C$ 내의 점에 대해 항상 최댓값과 최솟값을 갖는다.
+\end{theorem}
+
+\begin{definition}[균등 연속]
+함수 $F: S \subseteq \R^n \to \R^m$이 $S$ 위에서 균등 연속(uniformly continuous)이라는 것은 모든 $\epsilon > 0$에 대해, $\delta > 0$가 존재하여 모든 $X, Z \in S$에 대해
+$$
+\text{if } ||X-Z||<\delta \quad \text{then} \quad ||F(X)-F(X)||<\epsilon
+$$
+을 만족하는 것이다.
+\end{definition}
+
+\begin{theorem}
+닫혀있고 유계인 집합 $C$에서 정의된 연속 함수 $F : C \subseteq \R^n \to \R^m$는 $C$에서 균등 연속이다.
+\end{theorem}
+
+\subsection{좌표계}
+\subsubsection{극좌표계}
+극좌표계(polar coordinate)는 2차원에서 점을 원점으로부터의 거리와 회전 각을 통해 나타내는 좌표계이다.
+\begin{definition}[극좌표계]
+\begin{align*}
+x &= r \cos \theta\\
+y &= r \sin \theta
+\end{align*}
+여기서 $r \geq 0$이고, $0 \leq \theta \leq 2 \pi$이다.
+\end{definition}
+
+\subsubsection{원통좌표계}
+원통좌표계(cylindrical coordinate)는 극좌표계에 z축을 추가하여 3차원을 나타내는 좌표계이다.
+\begin{definition}[원통좌표계]
+\begin{align*}
+x &= r \cos \theta\\
+y &= r \sin \theta\\
+z &= z
+\end{align*}
+여기서 $r \geq 0$이고, $0 \leq \theta \leq 2 \pi$이다.
+\end{definition}
+
+\subsubsection{구면좌표계}
+구면좌표계(spherical coordinate)는 3차원에서 점을 원점으로부터의 거리와 x축과 z축에 각각 회전된 정도를 통해 나타내는 좌표계이다.
+\begin{definition}[구면좌표계]
+\begin{align*}
+x &= \rho \sin \phi \cos \theta\\
+y &= \rho \sin \phi \sin \theta\\
+z &= \rho \cos \phi
+\end{align*}
+여기서 $\rho \geq 0, 0 \leq \phi \leq \pi, 0 \leq \theta \leq 2 \pi$이다.
+\end{definition}

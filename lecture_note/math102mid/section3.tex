@@ -1,0 +1,246 @@
+\section{미분}
+
+이 챕터는, 다변수함수의 미분에 대해 다룬다. 우선 2변수함수에 대해 다룬 뒤, 이를 벡터 표기법으로 확장한다. 벡터 표기법을 이용했을 때, 1변수함수의 미분과 유사한 점을 발견할 수 있을 것이다.
+
+\subsection{미분가능성}
+$f$가 $x=a$에서 미분가능하다는 것은 $f$가 특정 점 $a$에서 선형함수에 근사할 수 있다는 뜻이다. 이를 확장해서, 다변수함수에서는 다음과 같이 정의한다. 여기서, 선형함수 $l(h,k)$는 원점을 지나는 형태의 평면이다.
+
+\begin{definition}[미분 가능성]
+중심이 $(a,b)$인 원판 위에서 정의된 함수 $f$가 미분가능(differentiable)하다는 것은, $f(a+h,b+k)-f(a,b)$가 선형함수 $l(h,k)$에 의해 잘 근사되는 것이다. 여기서 잘 근사된다는 것은 아래의 식이 $||(h,k)|| \to 0$일때, 0이 되는 것을 의미한다.
+$$\frac{(f(a+h,b+k)-f(a,b))-l(h,k)}{||(h,k)||}$$
+\end{definition}
+
+정의에서 $(h,k)$는 변위이다. 즉, $(a,b)$에서 얼마나 떨어져있는지를 나타낸다고 볼 수 있다. $f(a+h,b+k)-f(a,b)$는 h=k=0일 때, 값이 0이 된다.\\
+여기서 $h=x-a$, $k=y-b$로 변위를 표현함으로써 우리는 $f(x,y)$의 $(a,b)$ 근처에서의 선형 근사(linear approximation) $L(x,y)=f(a,b)+l(x-a,y-b)$를 얻을 수 있다. 이 정의는 A=(a,b), H=(h,k)로 쓰면 아래와 같이 정리된다.
+$$\frac{(f(A+H)-f(A))-l(H)}{||H||} \to 0 \quad \text{when} \quad ||H|| \to 0$$
+
+\begin{theorem}
+함수 $f:\R^2 \to \R$가 $A \subseteq \R$에서 미분가능하다면, $A$에서 연속이다.
+\end{theorem}
+
+\begin{theorem}[평균값 정리 1, Mean Value Theorem 1]
+$(a,b)$를 포함하는 개집합에서 함수 $f: \R^2 \to \R$에 $f_x$, $f_y$ 가 존재한다고 하자. 그러면, 충분히 작은 $||(h,k)||$를 보장하는 $h$와 $k$에 대해,
+$$f(a+h,b+k)-f(a,b)=hf_x(a+h',b+k')+kf_y(a,b+k')$$
+을 만족하는 $h' \in (a,a+h)$와 $k' \in (b,b+k)$가 존재한다.
+\end{theorem}
+
+\begin{definition}[편도함수]
+$f$가 $(a,b)$에서 미분 가능하고, 미분가능성 정의에서 $l(h,k)=p\cdot h$라고 하자. 그러면, $f(x,b)$가 단일 변수 $x$에 대해 $a$에서 미분가능하게 된다. 이때, $p$를 $(a,b)$에서 $f$의 $x$에 대한 편미분계수라고 부른다. 그리고,
+$$\frac{\partial f}{\partial x}(a,b)\quad\text{or}\quad f_x(a,b)$$
+로 쓴다. 이러한 과정을 한 축에 대해 전부 진행하여 얻은 함수를 편도함수(partial derivative)라 하고, 축을 명시한다. 위의 경우에는 $f_x(x,y)$ 또는 $\frac{\partial f}{\partial x}(x,y)$와 같이 쓴다.
+\end{definition}
+
+위 정의에서 $l(h,k)=p \cdot h$로 쓴 것은, $k=0$으로 두어 y축의 변위를 생각하지 않는다는 것을 표현하는 것이다. 또한, 이 정의를 통해 선형근사 함수를 $L(x,y)=f(a,b)+f_x(a,b)(x-a)+f_y(a,b)(y-b)$로 고쳐 쓸 수 있다.
+
+\begin{theorem}
+만약 $f$의 편도함수가 $(a,b)$를 포함하는 개집합에서 연속이면, $f$는 $(a,b)$에서 미분가능하다.
+\end{theorem}
+
+\begin{definition}[자코비안]
+함수 $F: \R^n \to \R^m$와 점 $A \in \R^n$에 대해,
+$$
+DF(A)=[a_{ij}]_{n \times m}\quad\text{where}\quad a_{ij}=\frac{\partial f_i}{\partial x_j}(A)
+$$
+라고 하자. 이 DF(A)를 미분 행렬(matrix derivative)이라고 부른다. n=m인 경우에, $J\textbf{F}(\textbf{A}) = \det D \textbf{F}(\textbf{A})$를 자코비안(jacobian)이라고 정의한다.
+\end{definition}
+
+\begin{definition}[그레디언트]
+함수 $f: \R^n \to \R$의 편도함수를 모은 벡터
+$$\text{grad} f = \nabla f = (f_{x_1}, \cdots, f_{x_n})$$
+를 f의 그레디언트(gradient)라고 한다.
+\end{definition}
+
+함수 f를 A 근처에서 근사한 결과는 $f(A+H) \approx f(A) + \nabla f(A) \cdot H$가 된다.
+
+\begin{definition}[연속 미분성]
+$F: U \subseteq \R^n \to \R^m$가 연속 미분(continously differentiable)인 것은 모든 편도함수가 U에서 연속함수인 것이다. 이러한 함수를 $C^1$ 함수라고 부른다.
+\end{definition}
+
+\begin{theorem}
+$F: U \subseteq \R^n \to \R^m$가 U에서 $C^1$이면, F는 U의 각 점에서 미분가능하다.
+\end{theorem}
+
+\subsection{접평면과 편미분}
+1변수 함수의 미분의 기하학적 의미는, 그 점에서의 접선의 기울기였다. 비슷하게, 다변수 함수의 미분의 기하학적 의미는 접평면의 기울기 벡터에서 온다. 2변수 함수 f(x,y)가 (a,b)에서 미분 가능하다고 하면, 점 (a,b,f(a,b))에서 함수 f에 접하는 접평면은 아래와 같다.
+$$
+z=L(x,y)=f(a,b)+f_x(a,b)(x-a)+f_y(a,b)(y-b)=f(a,b)+\nabla f(a,b) \cdot (x-a,y-b)
+$$
+이 방정식의 모든 변을 한쪽으로 몰아넣어 재작성하면,
+$$
+(-1)(z-f(a,b))+f_x(a,b)(x-a)+f_y(a,b)(y-b)=(f_x(a,b),f_y(a,b),-1) \cdot (x-a,y-b,z)
+$$
+가 된다. 여기서 $(f_x(a,b),f_y(a,b),-1)$는 접평면의 법선 벡터(normal vector)이다.
+
+이 법선 벡터를 얻는 또 다른 방법은, 아래와 같은 함수 $c_1$과 $c_2$를 구성하는 것이다.
+\begin{align*}
+\begin{cases}
+c_1(t)=(a,b,f(a,b))+t(0,1,f_y(a,b))\\
+c_2(t)=(a,b,f(a,b))+t(1,0,f_x(a,b))        
+\end{cases}
+\end{align*}
+그러면, 접평면의 매개변수 방정식은 아래와 같음을 알 수 있다.
+$$
+P(s,t)=(a,b,f(a,b))+s(1,0,f_x(a,b))+t(0,1,f_y(a,b))
+$$
+법선 벡터는 $(1,0,f_x(a,b))$와 $(0,1,f_y(a,b))$의 내적으로 구할 수 있다.
+
+\subsection{사슬 규칙}
+\begin{theorem}[사슬 규칙 1, The Chain Rule 1]
+$f: \R^2 \to \R$이 $U \in \R^2$에서 $C^1$이라고 하고, $X: I \to U$인 $X(t)=(x(t),y(t))$가 I에서 미분가능하다고 하자. 그러면, 합성함수 f(x(t),y(t))는 $I \to \R$이고,
+$$
+\frac{d}{dt}f(x(t),y(t))=\frac{\partial f}{\partial x} \frac{dx}{dt} + \frac{\partial f}{\partial y} \frac{dy}{dt} = \nabla f(x(t),y(t)) \cdot X'(t)
+$$
+가 성립한다.
+\end{theorem}
+
+위의 사슬 규칙은 곡선에서의 사슬 규칙이다.
+
+\begin{definition}[방향 미분]
+함수 $f: P \in U \subseteq \R^n \to \R$가 $C^1$이고, $V \in \R^n$라고 하자. $D_V f(P) = \nabla f(P) \cdot V$를 f의 P에서 V 방향으로의 방향 미분(directional derivative)이라고 한다.
+\end{definition}
+
+방향 미분은 f의 P에서의 증가방향에 대한 직관을 준다. $||V||=1$이기 때문에,
+$$
+D_Vf(P)=\nabla f(P) \cdot V = || \nabla f(P) || \cos \theta
+$$
+이다. 여기서 $\theta$는 $\nabla f(P)$와 $V$의 각도이다. 여기서 방향 미분은 $\cos \theta = 1$일 때 가장 큼을 알 수 있다. 이 방향은 $V$가 $\nabla f(P)$의 방향이 될 때이다. 즉, 점 $P$에서 가장 $f$의 값이 커지는 방향은 $\nabla f(P)$ 벡터 방향이다.
+
+k가 임의의 수라 하자. $f(x,y,z)=k$를 만족하는 점의 집합 S를 생각하자. 여기서, $f$가 $S$에서 $C^1$ 함수이고, $\nabla f(a,b,c) \neq 0$이면, $\nabla f(a,b,c)$는 S에 수직이다. 집합 S는 level curve이다.
+
+\begin{theorem}[사슬 규칙 2, The Chain Rule 2]
+$y=f(x_1,\cdots,x_n)$이 $U \subseteq \R^n$에서 $C^1$ 함수이고, $z=g(y)$가 $V \subseteq \R \to E \subseteq U$에서 $C^1$ 함수라고 하자. 그러면, 합성함수 $g \circ f$는 U에서 $C^1$이고,
+$$
+\frac{\partial}{\partial x_i}(g(f(x_1,c\dots,x_n))=\frac{dg}{dy}\frac{\partial f}{\partial x_i}\quad (i=1,\cdots,n)
+$$
+이다. 달리말해, $D(g \circ f)(X)=\frac{dg}{dy}\nabla f(X)$이다.
+\end{theorem}
+
+\begin{theorem}[사슬 규칙 3, The Chain Rule 3]
+$U \subseteq \R^k$, $V \subseteq \R^m$이라고 하자. $X(T)=(x_1(T),\cdots,x_m(T))$가 $U$에서 $C^1$ 함수이고, $F(X)=(y_1(X),\cdots,y_n(X))$가 $V$에서 $C_1$ 함수이며, $X$의 치역이 $V$에 속해있다고 하자. 그러면, $F(X(T))$는 $U$에서 $C^1$ 함수이고, 미분은 아래와 같은 미분행렬의 곱으로 나타내진다.
+$$
+D(F\circ X)(T) = DF(X(T))\cdot DX(T)
+$$
+이 미분행렬의 각 항 $a_{ij}$은 다음과 같다.
+$$
+a_{ij} = \frac{\partial y_i}{\partial t_j} = \frac{\partial y_i}{\partial t_1}\frac{\partial x_1}{\partial t_j} + \frac{\partial y_i}{\partial t_2}\frac{\partial x_2}{\partial t_j} + \cdots \frac{\partial y_i}{\partial t_m}\frac{\partial x_m}{\partial t_j}
+$$
+\end{theorem}
+
+사슬 규칙 3은 사슬 규칙 1, 2를 포괄하는 가장 일반화된 정리이다. 그러나, 이해를 돕고 계산을 빠르게 하기 위해서는 사슬 규칙 1, 2를 아는 것이 도움이 된다.
+
+\begin{theorem}[평균값 정리 2, Mean Value Theorem 2]
+$F=(f_1,\cdots,f_m)$이 $U \subseteq \R^n \to \R^m$인 $C_1$ 함수라고 하자. $0 \leq t \leq 1$일 때, $A+tH \in U$라고 하자. 그러면, $i=1,2,\cdots,m$에 대해 $0 < \theta_i < 1$인 $\theta_i$가 존재해서 다음이 만족한다.
+$$
+F(A+H)-F(A)=MH
+$$
+여기서 $M$은 $i$번째 행이 $\nabla f_i (A+\theta_i H)$인 $n \times m$ 행렬이다.
+\end{theorem}
+
+\begin{definition}[2번 연속미분]
+xy 평면에서 함수 f가 원판에서 정의되어 있다고 하자. 함수의 $f_x$, $f_y$가 존재하고 각각이 연속인 편도함수 $f_{xx}$, $f_{xy}$와 $f_{yx}$, $f_{yy}$가 존재하면, f는 2번 연속미분가능(continuously differentiable)하다고 한다. 또한, 이러한 함수 f를 $C^2$ 함수라고 한다.
+\end{definition}
+
+\begin{theorem}[클레로의 정리, Clairaut Theorem]
+f가 $C^2$ 함수라고 하자. 그러면, $f_{xy}=f_{yx}$이다.
+\end{theorem}
+
+\subsection{역함수}
+1변수 함수 $y=f(x)$가 미분가능하고, 도함수가 연속이라고 하자. 또한, $f'(a) \neq 0$이라고 하자. 그러면, f는 충분히 작은 구간 $a \in I$에 대해, 역함수(inverse function) $g$가 존재한다. 이 g는 점 $f(a)$에서 미분가능하고, $g ' (f(a))= \frac{1}{f'(a)}$이다.
+
+이 단원에서는 같은 흐름으로 다변수함수에서의 역함수와, 그에 관련된 정리를 공부하게 된다.
+
+\begin{lemma}
+$F=(f,g)$가 $\mathcal{O} \subseteq \R^2$에서 정의된 $C^1$ 함수라고 하자. 모든 $A \in \mathcal{O}$에 대해, 원판 $N_r(A)$가 존재해서 모든 $A+P, A+Q \in N_r(A)$에 대해 다음이 성립한다.
+$$
+||R(P)-R(Q)|| \leq s(P,Q) \cdot ||P-Q||
+$$
+또한, $r \to 0$일 때 $s(P,Q) \to 0$이다.
+\end{lemma}
+
+\begin{theorem}[역함수 정리, Inverse Function Theorem]
+$U=F(X)$가 $\R^2 \to \R^2$에서 $C^1$ 함수라고 하자. 만약, $A \in \R^2$에서 $DF(A)$가 역행렬이 존재한다면, F는 A를 포함하는 매우 작은 영역에서 일대일 함수이다. 즉, F는 이 영역에서 역함수 G가 존재한다. 이 G는 점 F(A)에서 미분가능하고, $DG(F(A))=DF(A)^{-1}$
+\end{theorem}
+
+위의 역함수 정리는 $F: \R^n \to \R^n$으로도 확장이 가능하다. 또한, 위의 정리로부터 따라오는 정리가 있다.
+
+\begin{theorem}[음함수 정리 1, Implicit Function Theorem 1]
+$f$가 $P \in \R^3$을 포함하는 영역에서 $C^1$이라고 하자. $f_z(P) \neq 0$이라고 하자. 그러면, $P$에 충분히 가까운 점 $X$에 대해 $f(X)=f(P)$를 만족하는 경우, $X=(x,y,g(x,y))$ 꼴을 만든다. 여기서 $g$는 $C^1$ 함수이다. $g$의 편도함수는 아래와 같은 관계가 있다.
+$$
+g_x = - \frac{f_x}{f_z},\quad g_y=-\frac{f_y}{f_z}
+$$
+\end{theorem}
+
+\begin{theorem}[음함수 정리 2, Implicit Function Theorem 2]
+$$
+F(X,Y)=(f_1(x_1,\cdots,x_n,y_1,\cdots,y_m),\cdots,f_m(x_1,\cdots,x_n,y_1,\cdots,y_m))
+$$
+가 $\R^{n+m} \to \R^m$이고, $(A,B)$를 포함하는 작은 영역에서 $C^1$ 함수라고 하자. 또한, $(X,Y) \in S \subseteq \R^{n+m}$에 대해, 아래를 만족한다고 하자.
+\begin{align*}
+f_1(x_1,\cdots,x_n,y_1,\cdots,y_m) &= c_1\\
+f_2(x_1,\cdots,x_n,y_1,\cdots,y_m) &= c_2\\
+\vdots\\
+f_m(x_1,\cdots,x_n,y_1,\cdots,y_m) &= c_m
+\end{align*}
+$(A,B)=(a_1,\cdots,a_n,b_1,\cdots,b_m) \in S$이고, 편도함수 행렬 $[\frac{\partial f_i}{\partial y_j}(A,B)]$의 행렬식이 0이 아니라고 하자. 그러면, $C^1$ 함수 $G: \R^n \to \R^m$가 존재하여, (A,B)와 충분히 가까운 점 $(X,Y) \in S$에 대해, $(X,Y)=(X,G(X,Y))$인 경우, 아래를 만족한다.
+\begin{align*}
+y_1 &= g_1(x_1,\cdots,x_n)\\
+y_2 &= g_2(x_1,\cdots,x_n)\\
+\vdots\\
+y_m &= g_m(x_1,\cdots,x_n)
+\end{align*}
+편도함수 $f_i$와 $g_j$는 아래의 관계를 갖는다.
+\begin{equation*}
+    \begin{pmatrix}
+        \frac{\partial f_1}{\partial x_j} \\
+        \frac{\partial f_2}{\partial x_j} \\
+        \vdots \\
+        \frac{\partial f_m}{\partial x_j}
+    \end{pmatrix}
+    +
+    \begin{pmatrix}
+        \frac{\partial f_1}{\partial y_1} & \cdots & \frac{\partial f_1}{\partial y_m}\\
+        \frac{\partial f_2}{\partial y_1} & \cdots & \frac{\partial f_2}{\partial y_m}\\
+        \vdots &  & \vdots \\
+        \frac{\partial f_m}{\partial y_1} & \cdots & \frac{\partial f_m}{\partial y_m}\\
+    \end{pmatrix}
+    \begin{pmatrix}
+        \frac{\partial g_1}{\partial x_j} \\
+        \frac{\partial g_2}{\partial x_j} \\
+        \vdots \\
+        \frac{\partial g_m}{\partial x_j}
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        0 \\
+        0 \\
+        \vdots \\
+        0
+    \end{pmatrix}
+    ,\quad
+    j=1,\cdots,n
+\end{equation*}
+\end{theorem}
+
+\subsection{회전과 발산}
+함수 $G(x,y)=(g_1(x,y),g_2(x,y))$와 $F(x,y,z)=(f_1(x,y,z),f_2(x,y,z),f_3(x,y,z))$를 정의하자. 이 단원은, 이 두 함수에 대해 특별한 편도함수의 조합에 대해 다룰 것이다.
+
+\begin{definition}[회전]
+회전(curl)은 다음과 같이 정의되는 연산자이다.
+$$
+\text{curl} G = \frac{\partial g_2}{\partial x} - \frac{\partial g_1}{\partial y},\quad \text{curl} F = \left( \frac{\partial f_3}{\partial y} - \frac{\partial f_2}{\partial z}, - \left( \frac{\partial f_3}{\partial x} - \frac{\partial f_1}{\partial z} \right), \frac{\partial f_2}{\partial x} - \frac{\partial f_1}{\partial y} \right)
+$$
+\end{definition}
+
+\begin{definition}[발산]
+발산(divergence)는 다음과 같이 정의되는 연산자이다.
+$$
+\text{div} G = \frac{\partial g_1}{\partial x} + \frac{\partial g_2}{\partial y},\quad \text{div} F = \frac{\partial f_1}{\partial x} + \frac{\partial f_2}{\partial y} + \frac{\partial f_3}{\partial z}
+$$
+
+\begin{definition}[라플라스 연산자]
+라플라스(laplace) 연산자 $\Delta$는 $\Delta f = \text{div grad} f$와 같이 정의된다.
+\end{definition}
+
+이러한 회전과 발산은 나중에 그린의 정리, 발산 정리 등을 공부할 때 중요하게 사용된다.
+
+\end{definition}
