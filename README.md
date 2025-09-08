@@ -9,3 +9,23 @@ There is a [Lecture Note](https://github.com/nyeoglya/math102-smp/blob/main/math
 Any suggestions for improvement are welcome.
 
 <img width=500 src="https://github.com/nyeoglya/math102-smp/blob/main/schedule.png" />
+
+### Current Progress
+| Week | Progress |
+|---|---|
+| 1 | No SMP |
+| 2 | Chapter 1.1, 1.2, 1.4, 1.5, 1.6 |
+| 3 |  |
+| 4 |  |
+| 5 |  |
+| 6 |  |
+| 7 |  |
+| 8 | No SMP |
+| 9 |  |
+| 10 |  |
+| 11 |  |
+| 12 |  |
+| 13 |  |
+| 14 |  |
+| 15 |  |
+| 16 | No SMP |
