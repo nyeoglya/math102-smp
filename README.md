@@ -14,13 +14,13 @@ Any suggestions for improvement are welcome.
 | Week | Progress | Problems |
 |---|---|---|
 | 1 | No SMP | x |
-| 2 | Chapter 1.1, 1.2, 1.4, 1.5, 1.6 | x |
+| 2 | Chapter 1.1, 1.2, 1.4, 1.5, 1.6 | [week 2](https://github.com/nyeoglya/math102-smp/blob/main/problems/week2.pdf) |
 | 3 | Chapter 1.8, 2.1, 2.2 (EVT) | [week 3](https://github.com/nyeoglya/math102-smp/blob/main/problems/week3.pdf) |
-| 4 |  | |
-| 5 |  | |
-| 6 |  | |
-| 7 |  | |
-| 8 | No SMP | |
+| 4 | Chapter 2.3, 3.1, 3.2, 3.3, 3.4 | [week 4](https://github.com/nyeoglya/math102-smp/blob/main/problems/week4.pdf) |
+| 5 | No SMP | x |
+| 6 | Chapter 3.5, 4.1, 4.2, 4.3, 4.4 | [week 6](https://github.com/nyeoglya/math102-smp/blob/main/problems/week6.pdf) |
+| 7 | Midterm Mock | midmock<!-- [midmock](https://github.com/nyeoglya/math102-smp/blob/main/problems/midmock.pdf) --> |
+| 8 | No SMP | x |
 | 9 |  | |
 | 10 |  | |
 | 11 |  | |
@@ -28,4 +28,4 @@ Any suggestions for improvement are welcome.
 | 13 |  | |
 | 14 |  | |
 | 15 |  | |
-| 16 | No SMP | |
+| 16 | No SMP | x |
