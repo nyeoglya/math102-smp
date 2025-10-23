@@ -122,7 +122,7 @@ D(F\circ X)(T) = DF(X(T))\cdot DX(T)
 $$
 이 미분행렬의 각 항 $a_{ij}$은 다음과 같다.
 $$
-a_{ij} = \frac{\partial y_i}{\partial t_j} = \frac{\partial y_i}{\partial t_1}\frac{\partial x_1}{\partial t_j} + \frac{\partial y_i}{\partial t_2}\frac{\partial x_2}{\partial t_j} + \cdots \frac{\partial y_i}{\partial t_m}\frac{\partial x_m}{\partial t_j}
+a_{ij} = \frac{\partial y_i}{\partial t_j} = \frac{\partial y_i}{\partial t_1}\frac{\partial x_1}{\partial t_j} + \frac{\partial y_i}{\partial t_2}\frac{\partial x_2}{\partial t_j} + \cdots + \frac{\partial y_i}{\partial t_m}\frac{\partial x_m}{\partial t_j}
 $$
 \end{theorem}
 
@@ -181,7 +181,7 @@ f_2(x_1,\cdots,x_n,y_1,\cdots,y_m) &= c_2\\
 \vdots\\
 f_m(x_1,\cdots,x_n,y_1,\cdots,y_m) &= c_m
 \end{align*}
-$(A,B)=(a_1,\cdots,a_n,b_1,\cdots,b_m) \in S$이고, 편도함수 행렬 $[\frac{\partial f_i}{\partial y_j}(A,B)]$의 행렬식이 0이 아니라고 하자. 그러면, $C^1$ 함수 $G: \R^n \to \R^m$가 존재하여, (A,B)와 충분히 가까운 점 $(X,Y) \in S$에 대해, $(X,Y)=(X,G(X,Y))$인 경우, 아래를 만족한다.
+$(A,B)=(a_1,\cdots,a_n,b_1,\cdots,b_m) \in S$이고, 편도함수 행렬 $[\frac{\partial f_i}{\partial y_j}(A,B)]$의 행렬식이 0이 아니라고 하자. 그러면, $C^1$ 함수 $G: \R^n \to \R^m$가 존재하여, (A,B)와 충분히 가까운 점 $(X,Y) \in S$에 대해, $(X,Y)=(X,G(X))$인 경우, 아래를 만족한다.
 \begin{align*}
 y_1 &= g_1(x_1,\cdots,x_n)\\
 y_2 &= g_2(x_1,\cdots,x_n)\\

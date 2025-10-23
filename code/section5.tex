@@ -1,7 +1,212 @@
-\section{적분 (기말 범위)}
-\subsection{면, 부피, 그리고 적분}
-\subsection{2계도 연속함수의 적분}
+\section{적분}
+이 파트에서는 다중적분의 개념을 다룬다. 다중적분은 평면이나 공간에서 어떠한 수량을 측정하기 위해 개발되었다. 결과적으로 이를 위해 이 파트에서는 넓이, 부피에 대한 개념을 엄밀하게 정의한다.
+
+\subsection{넓이와 부피}
+공간을 한 변의 길이가 $h>0$인 정사각형 모양의 격자로 나누자. 도형 $D\subseteq\R^2$이 주어졌을 때, 우리는 $D$ 안에 속해있는 격자를 모을 수 있다. 이렇게 내부 격자를 모았을 때, 그 크기를 $A_L(D,h)$라 한다. 이때, 우리가 h를 줄이면 격자가 세밀해지며 $D$에 속한 격자의 개수는 늘어날 것이고, $A_L(D,h)$는 증가할 것이다.\\
+이번에는 $D$와 겹치는 격자를 모두 모아보자. 그러면, 앞선 내부 격자는 전부 포함하면서 D의 경계와 겹치는 일부 격자들까지 모을 수 있게 된다. 이렇게 겹치는 격자를 모았을 때, 그 크기를 $A_U(D,h)$라 한다. h를 줄이면 $A_U(D,h)$는 감소하게 된다.\\
+두 경우는 $h$를 늘리고 줄이는 과정을 계속 진행하면, 단조수렴정리에 의해 결국 하나의 숫자로 수렴한다. 이때, 극한값을 각각 $A_L(D)$, $A_U(D)$라 하자.
+\begin{definition}[위쪽/아래쪽 넓이]
+$A_L(D)$를 $D$의 아래쪽 넓이, $A_U(D)$를 $D$의 위쪽 넓이라 한다.
+\end{definition}
+$([0,1]\times[0,1])\cap (\Q^2)$와 같은 반례의 존재로 인해, 위쪽 넓이와 아래쪽 넓이 값이 항상 같으리라는 보장은 없다. 그러나, 우리는 두 값이 같은 경우를 생각해볼 수 있다.
+\begin{definition}[넓이]
+$A_L(D)=A_U(D)$이면, 이러한 공통된 값을 D의 넓이라 하며, $\Area(D)=A_L(D)$와 같이 쓴다. 이때, D가 넓이를 갖는다고 한다.
+\end{definition}
+\begin{definition}[$\R^2$에서의 부드러운 유계]
+집합 $D$가 닫혀있고 유계이며 유한한 수의 $C^1$인 $y=f(x)$, $x=f(y)$ 꼴의 함수의 그래프로 경계를 표현할 수 있다고 하자. 그러한 $D$를 부드러운 유계라 한다.
+\end{definition}
+\begin{theorem}
+$D\subseteq\R^2$가 부드러운 유계 집합이면, $D$의 넓이가 존재한다.
+\end{theorem}
+\begin{theorem}
+부드러운 유계 집합 $D\subseteq\R^2$의 경계를 $C$라 하자. 함수 $C(h)$를 $C$와 한 변의 길이가 $h$인 정사각형 격자가 만나는 횟수로 정의하면, $C$에만 의존하는 어떤 상수 $c\in\R$에 대해 다음이 성립한다.
+$$
+C(h)\le\frac{c}{h}
+$$
+\end{theorem}
+위에서 넓이를 정의하기 위해 했던 것과 정확히 동일한 과정으로 진행하면 $\R^3$에서의 부피를 정의할 수 있다.
+\begin{definition}[부피]
+만약 $D\subseteq\R^3$의 위쪽 부피와 아래쪽 부피 값이 동일하면, 그러한 공통된 값을 D의 부피라 하며, $\Volume(D)$와 같이 쓴다. 이때, D가 부피를 갖는다고 한다.
+\end{definition}
+부드러운 유계도 2차원에서 했던 것과 정확히 동일하게 정의할 수 있다.
+\begin{definition}[$\R^3$에서의 부드러운 유계]
+집합 $D$가 닫혀있고 유계이며 유한한 수의 $C^1$인 $z=f(x,y)$, $z=f(x,y)$ 꼴의 함수의 그래프로 경계를 표현할 수 있다고 하자. 그러한 $D$를 부드러운 유계라 한다.
+\end{definition}
+\begin{theorem}
+부드러운 유계 집합 $D\subseteq\R^3$의 경계를 $S$라 하자. 함수 $S(h)$를 $S$와 한 변의 길이가 $h$인 정육면체 격자가 만나는 횟수로 정의하면, $S$에만 의존하는 어떤 상수 $s\in\R$에 대해 다음이 성립한다.
+$$
+S(h)\le\frac{s}{h^2}
+$$
+\end{theorem}
+\begin{theorem}
+$\R^3$에서의 부드러운 유계 집합은 부피가 있다.
+\end{theorem}
+
+\subsection{2변수 연속함수의 적분}
+넓이를 정의했기 때문에 이제 적분에 대해 논할 수 있다. 여기서는 함수가 연속이고, 정의역이 부드럽게 유계인 경우만 다룬다. 우선, 넓이를 정의할 때처럼 위쪽 적분 $I_U(f,D)$와 아래쪽 적분$I_L(f,D)$를 정의하자. 이를 위해, 우선 D를 한 변의 길이가 h인 정사각형 격자로 나눈다. 이제 격자 중 D와 겹치는 모든 격자를 골라서 순서를 부여하자. 지금부터는 이렇게 순서를 부여한 각 격자를 $B_j$라고 부른다.\\
+f가 연속이고 D가 닫혀있기 때문에, 최대최소정리에 의해 f는 각 $B_j$마다 최대 $u_j$와 최소 $\ell_j$가 존재한다. 그러면, 우리는 $U(f,D,h)=\sum_j h^2 u_j$와 $L(f,D,h)=\sum_j h^2 \ell_j$를 생각해볼 수 있다. 각각을 위쪽 h-합, 아래쪽 h-합이라고 한다. 함수 f가 비음수이면(i.e. $f\ge 0$), 위쪽 합이 아래쪽 합보다 항상 크거나 같다.\\
+$U(f,D,h)$와 $L(f,D,h)$는 h가 증가함에 따라 단조감소하고, 유계이기에 단조수렴정리에 의해 수렴값이 존재한다.
+\begin{definition}[위쪽/아래쪽 적분]
+위쪽 적분 $I_U(f,D)=\lim_{n\to\infty}U(f,D,2^{-n})$이다. 비슷하게, 아래쪽 적분 $I_L(f,D)=\lim_{n\to\infty}L(f,D,2^{-n})$이다.
+\end{definition}
+\begin{theorem}
+부드럽게 유계인 집합 $D\subseteq\R^2$에서 연속인 비음수 함수 $f$의 위쪽 적분과 아래쪽 적분 값은 동일하다. 
+\end{theorem}
+\begin{definition}[비음수 함수의 적분가능성]
+부드럽게 유계인 집합 $D\subseteq\R^2$에서 정의된 함수 $f$의 위쪽 적분과 아래쪽 적분 값이 동일하면, 우리는 f가 D에서 적분가능하다고 하며, 적분값이 존재한다고 한다. 이때, 함수 f의 D에서의 적분 값을 아래와 같이 쓴다.
+$$
+\int_Df\dd A=I_L(f,D)=I_U(f,D)
+$$
+여기서 f를 피적분함수라고 부른다.
+\end{definition}
+직교좌표계에서 위의 적분을 아래처럼 쓰기도 한다.
+$$
+\int_Df(x,y)\dd x\dd y
+$$
+이러한 형태로 작성된 적분을 2중 적분이라고 부른다.\\
+정의된 적분값은 위쪽 h-합과 아래쪽 h-합을 계산하지 않고도 임의의 정확도로 근사할 수 있다.
+\begin{definition}[근사 적분, 리만 합]
+함수 $f$ 부드럽게 유계인 집합 $D\subseteq\R^2$에서 정의되었다고 하자. 다시 한 변의 길이가 h인 정사각형 격자로 평면 $\R^2$를 나누고, D와 겹치는 격자를 $B_j$라 하자. 여기서 $j$는 순서를 부여하여 구분하기 위한 첨자이다. 이제, $B_j$ 내에서 아무 점 $C_j$를 고르자. 그러면,
+$$
+S(f,D,h)=\sum_jf(C_j)h^2
+$$
+를 정의할 수 있다. 이러한 합을 근사 적분, 혹은 리만 합이라 한다.
+\end{definition}
+\begin{theorem}
+부드럽게 유계인 집합 $D\subseteq\R^2$에서 정의된 함수 $f\ge 0$가 적분가능하다고 하자. $n\in\N$에 대해, $h=2^{-n}$로 설정하자. n을 늘려가면 h는 0으로 가게 된다. 그러면, 모든 근사 적분의 수열
+$$
+S(f,D,h)=S(f,D,2^{-n})=\sum_jf(C_j)h^2
+$$
+은 $C_j$의 선택에 무관하게 적분값 $\int_Df\dd A$로 수렴한다.
+\end{theorem}
+\begin{definition}[연속인 함수의 적분]
+함수 f가 부드럽게 유계인 집합 $D\subseteq\R^2$에서 정의되었다고 하자. f를 연속인 두 함수 $g\ge 0$, $k\ge 0$의 차인 $f=g-k$로 쓸 수 있다면, f의 D에서의 적분 값을 아래와 같이 정의한다.
+$$
+\int_Df\dd A = \int_Dg\dd A - \int_Dk\dd A
+$$
+\end{definition}
+
 \subsection{연속된 단일적분으로 쪼개지는 2중적분}
-\subsection{2중적분 변수치환}
-\subsection{무계집합에서의 적분}
+우리는 이제 부드러운 유계 집합 D에서 연속인 함수 f에 대한 적분값 $\int_Df\dd A$를 정의했다. 이러한 적분값을  계산하는 방법 중 하나가 적분을 연속된 단일적분으로 쪼개는 것이다.
+\begin{definition}[단순 집합]
+유계인 집합 D가 함수 $x=a(y)$, $x=b(y)$에 대해 $a(y)\le x\le b(y)$, $c\le y\le d$ 형태로 표현되면 x-단순이라고 한다. 비슷하게, $y=a(x)$, $y=b(b)$에 대해 $c\le x\le d$, $a(x)\le y\le b(x)$ 형태로 표현되면 y-단순이라고 한다.
+\end{definition}
+x-단순 집합 $D = \{(x,y):a(y)\le x\le b(y)\;\text{for}\; y \in [c,d]\}$에 대해, $y=k$와 D의 교선을 $D(k)$라 정의하자. 그러면,
+$$
+\int_{D(k)}f(x,y)\dd x = \int_{x=a(y)}^{x=b(y)}f(x,y)\dd x
+$$
+가 y에 대한 연속함수이다. 즉, 위를 다시 x에 대해 적분하면 아래를 얻을 수 있다.
+$$
+\int_c^d \left(\int_{x=a(y)}^{x=b(y)}f(x,y)\dd x\right) \dd y
+$$
+이러한 적분을 연속된 적분이라고 부른다.
+\begin{theorem}
+부드럽게 유계인 집합 $D\subseteq\R^2$에서 함수 $f\ge 0$가 연속이라고 하자. 그러면, 연속된 적분은 그냥 적분값과 같다. 즉,
+$$
+\int_Df\dd A=\int_c^d \left(\int_{D(y)}f(x,y)\dd x\right) \dd y
+$$
+여기서, $D(y)$는 x축과 평행한 유한한 수의 구간의 합집합이다.
+\end{theorem}
+
+\subsection{2중적분의 변수치환}
+\begin{definition}[부드러운 변수치환]
+$U\subseteq\R^2$에서 $C^1$인 함수 $F(u,v)=(x(u,v),y(u,v))$가 일대일 함수이고, F의 미분행렬이 U의 각 점에서 역행렬이 존재하면 F를 부드러운 변수치환이라고 한다.
+\end{definition}
+
+\begin{theorem}
+부드럽게 유계인 두 집합 $C, D\subseteq\R^n$에서 $F:C\to D$, $F(u,v)=(x(u,v),y(u,v))$가 C의 경계를 D의 경계로 옮기는 부드러운 변수치환이고, 함수 f가 D에서 연속이라고 하자. 그러면,
+$$
+\int_Df(x,y)\dd x\dd y=\int_Cf(x(u,v),y(u,v))|JF(u,v)|\dd u\dd v
+$$
+\end{theorem}
+
+\subsection{무계집합에서의 적분 (범위 밖)}
+
 \subsection{3중적분과 다중적분}
+이 단원에서의 정리와 정의는 기존 2중적분에서의 정의와 정리를 일반적으로 확장한 것이다. 다만, 몇몇 정리들은 위쪽에서는 언급하지 않았던 정리이다. 각 정리들은 적분의 기본적인 성질을 담고 있으며, 이는 1변수에서의 적분을 통해 쉽게 유추가 가능해 위에서는 의도적으로 작성하지 않았다.
+\begin{definition}[$\R^n$에서 부드러운 유계]
+닫힌 집합 $D\subseteq\R^n$가 부드럽게 유계라는 것은 $D$의 경계가 아래와 같은 형태의 유한한 $C^1$ 함수의 그래프의 합칩합으로 표현이 된다는 것이다.
+$$
+x_k=g(x_1,\cdots,x_{k-1},x_{k+1},\cdots,x_n)\quad\text{for some}\quad k=1,\cdots,n
+$$
+여기서 $g$는 $x_k=0$인 초평면 위의 부드러운 유계 집합 위에서 정의된다.
+\end{definition}
+\begin{theorem}
+$\R^n$ 내의 부드럽게 유계인 집합은 부피를 갖는다.
+\end{theorem}
+\begin{definition}[$\R^n$에서 위쪽/아래쪽 적분]
+$f: \R^n \to \R$가 부드럽게 유계인 집합 $D\subseteq\R^n$에서 유계라고 하자. 위쪽/아래쪽 적분은 아래와 같이 정의된다.
+$$???$$
+만약, 위쪽 적분값과 아래쪽 적분값이 동일하면, $f$가 $D$에서 적분가능하다고 하며, 아래와 같이 쓴다.
+$$
+I_U(f,D)=I_L(f,D)=\int_D f\dd^nX
+$$
+\end{definition}
+\begin{theorem}
+부드럽게 유계인 집합 $D\subseteq\R^n$에서 정의된 연속함수 $f$는 적분가능하다.
+\end{theorem}
+\begin{theorem}
+부드럽게 유계인 집합 $C,D\subseteq\R^n$가 정의되었다고 하자. 연속함수 $f:C\to\R$, $g:D\to\R$와 모든 상수 $c\in\R$에 대해 다음이 성립한다.
+\begin{enumerate}[label=(\alph*)]
+    \item $\int_D(f+g)\dd^nX=\int_Df\dd^nX+\int_Dg\dd^nX$
+    \item $\int_Dcf\dd^nX=c\int_Df\dd^nX$
+    \item 만약 $\ell\le f(X)\le u$면, $\ell\Volume(D)\le\int_D f\dd^nX\le u\Volume(D)$
+    \item 만약 $C,D$가 겹치지 않거나 경계에서만 겹치고, $C\cup D$가 부드럽게 유계면, $\int_{C\cup D}f\dd^nX=\int_Cf\dd^nX+\int_Cf\dd^nX$
+\end{enumerate}
+\end{theorem}
+\begin{theorem}
+부드럽게 유계인 집합 $C,D\subseteq\R^n$가 정의되었다고 하자. 연속함수 $f:C\to\R$, $g:D\to\R$에 대해,
+\begin{enumerate}[label=(\alph*)]
+    \item 만약 모든 $(x,y)\in D$에 대해 $g(x,y)\le f(x,y)$이면, $\int_D g\dd A\le \int_D f\dd A$
+    \item 만약 $C \subseteq D$이고 $f\ge 0$이면, $\int_C f\dd A\le \int_D f\dd A$
+\end{enumerate}
+\end{theorem}
+\begin{theorem}
+모든 부드럽게 유계인 $D\subseteq\R^n$과 모든 연속함수 $f:D\to\R$에 대해 $\mathscr{I}(f,D)$가 정의되어 다음의 4가지 조건을 만족한다고 하자.
+\begin{enumerate}[label=(\alph*)]
+    \item $\mathscr{I}(f+g,D)=\mathscr{I}(f,D)+\mathscr{I}(f,D)$
+    \item 모든 $c\in\R$에 대해, $\mathscr{I}(cf,D)=c\mathscr{I}(f,D)$
+    \item 만약 모든 $X$에 대해 $\ell\le f(X)\le u$이면, $\ell\Volume(D)\le \mathscr{I}(f,D)\le u \Volume(D)$
+    \item 만약 $C,D$가 겹치지 않거나 경계에서만 겹치고, $C\cup D$가 부드럽게 유계면, $\mathscr{I}(f,C\cup D)=\mathscr{I}(f,C)+\mathscr{I}(f,D)$
+\end{enumerate}
+그러면,
+$$
+\mathscr{I}(f,D)=\int_Df\dd^nX
+$$
+\end{theorem}
+\begin{theorem}
+부드럽게 유계인 $D\subseteq\R^n$에서 연속인 함수 $f$에 대해, 적분 $\int_Df\dd^nX$은 아래와 같은 근사 적분의 극한과 같다.
+$$
+\sum_j f(P_j)h^n
+$$
+이러한 합은 $D$의 $h$-상자에 대해, $j$번째 상자 내부의 점 $P_j$과 함께 합한 것이다.
+\end{theorem}
+\begin{definition}[함수의 평균]
+부드럽게 유계인 $D\subseteq\R^n$에서 적분가능한 함수 $f$의 평균은 다음과 같이 정의된다.
+$$
+\frac{1}{\Volume(D)}\int_D f\dd^nX=\frac{\int_D f\dd^nX}{\int_D 1 \dd^nX}
+$$
+\end{definition}
+\begin{theorem}[적분의 평균값정리, MVT for Integrals]
+부드럽게 유계인 연결집합 $D\subseteq\R^n$에서 $f:D\to\R$가 연속이라고 하자. 그러면,
+$$
+f(P)=\frac{\int_Df\dd^nX}{\Volume(D)}
+$$
+인 $P \in D$가 존재한다.
+\end{theorem}
+\begin{theorem}
+부드럽게 유계인 두 집합 $C, D\subseteq\R^n$에 대해 $F:C\to D$가 C의 경계를 D의 경계로 옮기는 부드러운 변수치환이고, 함수 f가 D에서 연속이라고 하자. 그러면,
+$$
+\int_Df(X)\dd^nX=\int_Cf(F(y))|JF(U)|\dd^nU
+$$
+\end{theorem}
+\begin{theorem}
+부드럽게 유계인 집합 $D\subseteq\R^3$에 대해 $f$가 $D\times[a,b]$에서 연속함수라고 하자.
+\begin{enumerate}[label=(\alph*)]
+    \item 그러면 $\int_Df(X,t)\dd V$는 $t$에 대한 연속함수이다.
+    \item 만약 f가 t에 대해 연속 미분함수면, $\int_Df(X,t)\dd V$는 t에 대한 연속 미분함수이고, 다음이 성립한다.
+    $$
+    \frac{\dd}{\dd t}\int_Df(X,t)\dd V = \int_D f_t(X,t)\dd V
+    $$
+\end{enumerate}
+\end{theorem}
