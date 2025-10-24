@@ -2,43 +2,47 @@
 \subsection{$\R^2$에서의 그린 정리와 발산 정리}
 
 \begin{definition}[정칙]
-부드럽게 유계인 D가 각각이 경계에서만 만나는 x-단순, y-단순 곡선들로 둘러쌓이는 부드러운 유계 부분집합의 유한한 합집합으로 표현가능하다면 D를 정칙이라고 한다.
+부드럽게 유계인 D가 각각이 경계에서만 만나는 x-단순(x-simple), y-단순(y-simple) 곡선들로 둘러쌓이는 부드러운 유계 부분집합의 유한한 합집합으로 표현가능하다면 D를 정칙(regular)이라고 한다.
 \end{definition}
 
-\begin{theorem}[발산 정리]
+\begin{theorem}[$\R^2$에서의 발산 정리, Divergence Theorem in $\R^2$]
 만약 $F: \R^2 \to \R^2$가 정규인 $D\subseteq\R^2$에서 $C^1$이면,
 $$
-\int_D \Div F\dd A = \int_{\partial D}F\dd s
+\int_D \Div F\dd A = \int_{\partial D}F \cdot N\dd s
 $$
 \end{theorem}
+발산 정리는 도형 내부의 전체 발산을 더한 것과 도형을 둘러싸는 곡선에서의 법선 벡터 방향의 함수값만을 더한 것이 동일하다는 정리이다.
 
-\begin{theorem}[그린 정리]
+\begin{theorem}[그린 정리, Green Theorem]
 만약 $F=(f,g)$가 정칙인 $D\subseteq\R^2$에서 $C^1$이면
 $$
 \int_D \Curl F\dd A = \int_{\partial D}F\cdot T\dd s
 $$
-이다. 여기서 D의 경계는 시계 반대방향으로 움직였다.
+이다. 여기서 $D$의 경계는 시계 반대방향으로 움직였다.
 \end{theorem}
+그린 정리는 도형 내부의 전체 회전을 더한 것과 도형을 둘러싸는 곡선에서의 접선 벡터 방향의 함수값만을 더한 것이 동일하다는 정리이다.
 
 \subsection{$\R^3$에서의 발산 정리}
-\begin{theorem}[$\R^3$에서의 발산 정리]
+2차원에서의 발산 정리를 확장한 것이다. 기본적인 아이디어는 동일하다.
+\begin{theorem}[$\R^3$에서의 발산 정리, Divergence Theorem in $\R^3$]
 만약 $F: \R^3 \to \R^3$가 정규인 $D\subseteq\R^3$에서 $C^1$이고, N이 $\partial D$에서 D의 바깥 방향으로의 단위 법선 벡터면,
 $$
 \int_{\partial D} F\cdot N\dd \sigma = \int_{D}\Div F\dd V
 $$
 \end{theorem}
+위 정리는 물리학에서 전기장에서의 가우스 법칙과 동일한 내용을 담고 있다.
 
 \subsection{스토크스 정리}
-\begin{theorem}[스토크스 정리]
+스토크스 정리는 2차원에서 어떠한 도형에 적용한 그린의 정리를 3차원에서 표면에 적용할 수 있도록 확장한 것이다.
+\begin{theorem}[스토크스 정리, Stokes Theorem]
 경계가 조각별 부드러운 곡선인 조각별 부드러운 유향 표면 $S\subseteq\R^3$에 대해, $C^1$인 벡터장 $G:S\to\R^3$가 정의되었다고 하자. 그리고 S의 매개화의 정의역이 $\R^2$에서 정규라고 하자. 그러면,
 $$
 \int_{S} \Curl G\cdot N\dd \sigma = \int_{\partial S}G\cdot T\dd s
 $$
-이다. 여기서 N은 S 안쪽 방향 단위 법선 벡터이고, T는 시계 반대방향 단위 방향 벡터이다.
+이다. 여기서 $N$은 $S$ 안쪽 방향 단위 법선 벡터(unit normal vector)이고, $T$는 시계 반대방향 단위 접선 벡터(unit tangent vector)이다.
 \end{theorem}
-
 \begin{definition}[단순 연결]
-$\R^n$에서의 집합이 연결되어 있고, 집합 안의 모든 닫혀있는 단순 곡선이 하나의 점으로 수축가능하면, 그러한 집합을 단순 연결되었다고 한다.
+$\R^n$에서의 집합이 연결되어 있고, 집합 안의 모든 닫혀있는 단순 곡선이 하나의 점으로 수축가능하면, 그러한 집합을 단순 연결(simply connected)되었다고 한다.
 \end{definition}
 
 \begin{theorem}

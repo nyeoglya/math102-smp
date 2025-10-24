@@ -1,9 +1,10 @@
 \section{선적분과 표면적분}
-이 단원에서는 곡선을 따라가며 적분하는 선적분, 표면을 따라가며 적분하는 표면적분의 개념에 대해 다룬다. 정의 자체는 새롭게 느껴질 수 있지만, 대다수의 개념이 단순하다.
+이 단원에서는 곡선을 따라가며 적분하는 선적분, 표면을 따라가며 적분하는 표면적분의 개념에 대해 다룬다. 정의 자체는 새롭게 느껴질 수 있지만, 대다수의 개념 자체는 그리 복잡하지 않다.
 
 \subsection{선적분}
+이 부분에서는 곡선이 주어졌을 때, 이를 따라가며 적분하는 선적분에 대해 다룬다. 곡선은 2차원 이상에서 정의되는 1차원 대상이다. 선적분을 하기 위해서는 함수가 주어져야 한다. 이때, 함수는 다루고자 하는 공간의 차원이 n이라고 하면 $f:\R^n\to\R$ 형태인 스칼라장, $F:\R^n\to\R^n$ 형태인 벡터장 2개의 경우만 다루며, 각각의 경우에서 선적분의 정의가 다르다.
 \begin{definition}[부드러운 곡선]
-함수 $X:[a,b]\to\R^3$인 $X(y)=(x(t),y(t),z(t))$가 $C^1$함수라고 하자. $[a,b]$에서 $X'(t)\neq 0$이라고 하자. 그러면 $X$의 치역 $C$를 $X(a)$에서부터 $X(b)$로 가는 부드러운 곡선이라고 한다. $X$는 $C$의 부드러운 매개화라고 한다.
+함수 $X:[a,b]\to\R^3$인 $X(y)=(x(t),y(t),z(t))$가 $C^1$함수라고 하자. $[a,b]$에서 $X'(t)\neq 0$이라고 하자. 그러면 $X$의 치역 $C$를 $X(a)$에서부터 $X(b)$로 가는 부드러운 곡선(smooth curve)이라고 한다. $X$는 $C$의 부드러운 매개화(smooth parametrizable)라고 한다.
 \end{definition}
 부드러운 매개화 $X$가 존재하는 부드러운 곡선 $C$의 길이는 다음과 같다. 여기서 s는 C를 따라 존재하는 작은 
 $$
@@ -11,40 +12,44 @@ $$
 $$
 만약, 유한한 부드러운 곡선이 하나의 끝점이 다른 것과 연속적으로 연결되어 있다면 이러한 곡선을 조각별 부드러운 곡선(piecewise smooth curve)이라고 부른다.
 
-\begin{definition}[스칼라 장에서의 선적분]
-$t\in[a,b]$ 범위의 $X(y)=(x(t),y(t),z(t))$에 의해 매개된 부드러운 곡선 C 위에서 함수 f가 연속이라 하자. f의 C 위에서의 선적분은 아래와 같다.
+\begin{definition}[스칼라장에서의 선적분]
+$t\in[a,b]$ 범위의 $X(y)=(x(t),y(t),z(t))$에 의해 매개된 부드러운 곡선 C 위에서 함수 f가 연속이라 하자. f의 C 위에서의 선적분(line integral)은 아래와 같다.
 $$
 \int_C f\dd s = \int_a^b f(X(t))||X'(t)||\dd t
 $$
 \end{definition}
 조각별 부드러운 곡선의 경우, 각 부드러운 곡선에서 적분값을 계산한 후에 그 전체 값을 더하여 곡선의 길이에 대한 적분 값을 계산할 수 있다.
 \begin{definition}[선적분의 평균]
-$t\in[a,b]$ 범위의 $X(y)=(x(t),y(t),z(t))$에 의해 매개된 부드러운 곡선 C 위에서 함수 f가 연속이라 하자. f의 C 위에서의 평균은 아래와 같다.
+$t\in[a,b]$ 범위의 $X(y)=(x(t),y(t),z(t))$에 의해 매개된 부드러운 곡선 C 위에서 함수 f가 연속이라 하자. f의 C 위에서의 평균(average)은 아래와 같다.
 $$
 \frac{\int_C f\dd s}{\int_C \dd s} = \frac{\int_a^b f(X(t))||X'(t)||\dd t}{\int_a^b ||X'(t)||\dd t}
 $$
 \end{definition}
-\begin{definition}[단위 방향 벡터]
-$t\in[a,b]$ 범위의 $X(y)=(x(t),y(t),z(t))$에 의해 매개된 부드러운 곡선 C 위에서 함수 F가 연속인 벡터장이라 하자. t가 증가하는 방향으로의 C에서 단위 방향 벡터 $T$는 다음과 같다.
+\begin{definition}[곡선에서의 단위 접선 벡터]
+C가 $t\in[a,b]$ 범위의 $X(t):\R\to\R^n$에 의해 매개된 부드러운 곡선이라고 하자. t가 증가하는 방향에서, C의 단위 접선 벡터(unit tangent vector) $T(t)$는 다음과 같다.
 $$
 T(t)=\frac{X'(t)}{||X'(t)||}
 $$
 \end{definition}
-T는 C 위에서 A=X(a)부터 B=X(b)까지 향하는 벡터이다.
-\begin{definition}[벡터 장에서의 선적분]
-단위 방향 벡터에서 정의된 F에 대해, F의 C 위에서의 A부터 B까지의 선적분은 다음과 같다.
+즉, 위의 정의에 의하면 T는 C 위에서 A=X(a)부터 B=X(b)까지 향하는 벡터이다.
+\begin{definition}[곡선에서의 단위 법선 벡터]
+C가 $t\in[a,b]$ 범위의 $X(t):\R\to\R^n$에 의해 매개된 부드러운 곡선이라고 하자. t가 증가하는 방향에서, C의 단위 법선 벡터(unit normal vector) $N$는 다음과 같다.
+$$
+N(t)=\frac{T'(t)}{||T'(t)||}
+$$
+\end{definition}
+\begin{definition}[벡터장]
+$F:\R^n\to\R^n$ 꼴의 함수를 벡터장(vector field)라고 한다.
+\end{definition}
+벡터장은 공간에 벡터를 부여하는 함수이다. 가령, 3차원 공간이 있다고 하면 그 공간에서의 벡터장은 공간의 각 점에 3차원 벡터를 부여한다. 대표적인 예시가 중력장이다.
+\begin{definition}[벡터장의 선적분]
+$t\in[a,b]$ 범위의 $X(t):\R\to\R^2$가 $X(t)=(x(t),y(t))$로 정의되었다고 하자. $X$가 매개한 부드러운 곡선 C 위에서 연속인 2차원 벡터장 $F=(f_1,f_2)$이 정의되었다고 하자. F의 C 위에서의 A부터 B까지의 선적분(line integral)은 다음과 같다.
 $$
 \int_CF\cdot T \dd s = \int_a^b F(X(t))\cdot T(X(t))||X'(t)||\dd t = \int_a^b F(X(t))\cdot X'(t)dt
 $$
 \end{definition}
-\begin{definition}[벡터장의 단위 법선 벡터]
-$t\in[a,b]$ 범위의 $X(y)=(x(t),y(t))$에 의해 매개된 부드러운 곡선 C 위에서 함수 $F=(f_1,f_2)$가 연속인 벡터장이라 하자. F의 C에서 단위 법선 벡터 $N$는 다음과 같다.
-$$
-N=N(x(t),y(t))=\frac{1}{||X'(t)||}(-y'(t),x'(t))
-$$
-\end{definition}
-\begin{definition}[벡터장의 선속]
-단위 법선 벡터에서 정의된 F에 대해, F의 C를 가로지르는 선속(flux)은 다음과 같다.
+\begin{definition}[2차원 벡터장의 선속]
+$t\in[a,b]$ 범위의 $X(t):\R\to\R^2$가 $X(t)=(x(t),y(t))$로 정의되었다고 하자. $X$가 매개한 부드러운 곡선 C 위에서 연속인 2차원 벡터장 $F=(f_1,f_2)$이 정의되었다고 하자. F의 C를 가로지르는 선속(flux)은 다음과 같다.
 $$
 \int_CF\cdot N\dd s = \int_a^b F(X(t))\cdot N(x(t),y(t))||X'(t)||\dd t=\int_C -f_1\dd y+f_2\dd x
 $$
@@ -52,26 +57,26 @@ $$
 
 \subsection{보존장}
 \begin{definition}[보존장]
-벡터장 F가 어떤 $C^1$ 함수 $g$에 대해, 정의역의 모든 $P$에 대해 $F(P)=\nabla g(P)$를 만족한다면 F를 보존장이라고 한다. 이때, 함수 g를 잠재 함수(potential function)이라고 한다.
+벡터장 F가 어떤 $C^1$ 함수 $g$에 대해, 정의역의 모든 $P$에 대해 $F(P)=\nabla g(P)$를 만족한다면 F를 보존장(conservative field)이라고 한다. 이때, 함수 g를 잠재 함수(potential function)이라고 한다.
 \end{definition}
-
+가장 대표적인 보존장은 중력장이다. 퍼텐셜 에너지가 잠재 함수라고 할 수 있다.
 \begin{theorem}
-열린 연결된 집합 $D\subseteq\R^n$에서 $F:D\to\R^n$이 연속인 벡터장이라고 하자. 그러면, 다음의 3개의 조건은 동등하다.
+열린 연결된 집합 $D\subseteq\R^n$에서 $F:D\to\R^n$이 연속인 벡터장이라고 하자. 그러면, 다음의 3개의 조건은 동등하다. 즉, 하나가 성립하면 나머지 2개가 성립한다.
 \begin{enumerate}[label=(\alph*)]
     \item F가 보존장이다.
     \item D 내부의 모든 조각별 부드러운 닫힌 곡선 C에 대해, $\int_C F\cdot T\dd s = 0$
     \item 모든 $A,B \in D$에 대해, 두 점을 양 끝점으로 하는 두 조각별 부드러운 닫힌 곡선 $C_1$, $C_2$이 있다고 하자. 그러면, $\int_{C_1}F\cdot T\dd s = \int_{C_2}F\cdot T\dd s$
 \end{enumerate}
 \end{theorem}
-
 \begin{theorem}[선적분의 기본 정리]
 $C^1$인 함수 g의 정의역에서 C가 A에서 B로 가는 조각별 부드러운 곡선이라고 하자. 그러면,
 $$
 \int_C \nabla \cdot T\dd s = g(B)-g(A)
 $$
 \end{theorem}
-
+이 정리는 물리학에서 일과 큰 연관이 있다. 보존장에서의 일을 계산할 때는 일을 한 경로에 무관하게 처음 위치에서의 퍼텐셜 에너지와 마지막 위치에서의 퍼텐셜 에너지의 차만 게산하면 된다.
 \begin{theorem}
+2차원과 3차원 보존장에서는 다음과 같은 사실이 성립한다.
 \begin{enumerate}[label=(\alph*)]
     \item $F:\R^2\to\R^2$인 F가 $C^1$이고 보존장이면, $\text{curl}F=0$
     \item $F:\R^3\to\R^3$인 F가 $C^1$이고 보존장이면, $\text{curl}F=0$
@@ -79,49 +84,48 @@ $$
 \end{theorem}
 
 \subsection{표면과 표면적분}
-
+곡선에서의 적분을 정의했기 때문에, 자연스럽게 표면에서의 적분도 생각해볼 수 있다. 표면은 3차원 이상에서 정의되는 2차원 대상이다. 여기서도 앞서 선적분을 정의할 때 했던 것처럼, 스칼라장과 벡터장에 대해 두 가지 표면적분에 대해 다룬다.
 \begin{definition}[부드러운 표면]
-부드럽게 유계인 $D\subseteq\R^2$에 대해, $X:D\to\R^3$가 $C^1$이라고 하자. X가 D의 내부(interior)에서 다음의 조건을 만족한다고 하자.
+부드럽게 유계인 $D\subseteq\R^2$에 대해, $X:D\to\R^3$가 $C^1$이라고 하자. $X$가 $D$의 내부(interior)에서 다음의 조건을 만족한다고 하자.
 \begin{enumerate}[label=(\alph*)]
-    \item X가 일대일(one-to-one)이다.
-    \item X의 편도함수의 각 성분이 유계이다.
+    \item $X$가 일대일(one-to-one)이다.
+    \item $X$의 편도함수(partial derivative)의 각 성분이 유계(bound)이다.
     \item 편도함수
     \begin{align*}
     X_u(u,v)&=(x_u(u,v),y_u(u,v),z_u(u,v))\\
     X_v(u,v)&=(x_v(u,v),y_v(u,v),z_v(u,v))
     \end{align*}
-    가 선형독립이다. ($X_u \times X_v \neq 0$)
+    가 선형독립(linearly independent)이다. (즉, $X_u \times X_v \neq 0$)
 \end{enumerate}
-이러한 X의 치역 S를 X에 의해 매개화된 부드러운 표면이라고 한다. 또한, X를 S의 매개화라고 한다.
+이러한 $X$의 치역 $S$를 $X$에 의해 매개화된 부드러운 표면(smooth surface)이라고 한다. 또한, X를 S의 매개화(parametrization)라고 한다.
 \end{definition}
-X(u,v)를 가지고 있고 법선 벡터가 $X_u \times X_v$인 평면을 S의 X(u,v)에서의 접평면이라고 한다.
+$X(u,v)$를 포함하고, 법선 벡터가 $X_u \times X_v$인 평면을 $S$의 $X(u,v)$에서의 접평면(plane tangent)이라고 한다.
 \begin{definition}[표면의 넓이]
-부드럽게 유계인 D 위에서 정의된 $X:D\to\R^3$에 의해 매개화된 부드러운 표면을 S라 하자. S의 넓이는 다음과 같다.
+부드럽게 유계인 $D$ 위에서 정의된 $X:D\to\R^3$에 의해 매개화된 부드러운 표면을 $S$라 하자. $S$의 넓이(area)는 다음과 같다.
 $$
 \Area(S)=\int_S \dd \sigma = \int_D ||X_u(u,v) \times X_v(u,v)|| \dd u\dd v
 $$
 \end{definition}
 
-\begin{definition}[표면 적분]
-부드럽게 유계인 D 위에서 정의된 $X:D\to\R^3$에 의해 매개화된 부드러운 표면을 S라 하자. 그리고, f를 S 위에서의 연속 함수라고 하자. f의 S 위에서의 표면 적분은 아래와 같다.
+\begin{definition}[스칼라장에서의 표면 적분]
+부드럽게 유계인 $D$ 위에서 정의된 $X:D\to\R^3$에 의해 매개화된 부드러운 표면을 $S$라 하자. 그리고, $f$를 $S$ 위에서의 연속 함수라고 하자. $f$의 $S$ 위에서의 표면 적분(surface integral)은 아래와 같다.
 $$
 \int_S f\dd \sigma = \int_D f(X(u,v)) ||X_u \times X_v|| \dd u\dd v
 $$
 \end{definition}
 
 \begin{definition}[표면의 단위 법선 벡터]
-부드럽게 유계인 D 위에서 정의된 $X:D\to\R^3$에 의해 매개화된 부드러운 표면을 S라 하자. 표면의 단위 법선 벡터 $N=N(u,v)$은 다음과 같이 정의된다.
+부드럽게 유계인 $D$ 위에서 정의된 $X:D\to\R^3$에 의해 매개화된 부드러운 표면을 $S$라 하자. 표면의 단위 법선 벡터(unit normal vector) $N=N(u,v)$은 다음과 같이 정의된다.
 $$
 N(u,v)=\frac{X_u(u,v) \times X_v(u,v)}{||X_u(u,v) \times X_v(u,v)||}
 $$
 \end{definition}
 
-\begin{definition}[표면에서의 선속]
-부드럽게 유계인 D 위에서 정의된 $X:D\to\R^3$에 의해 매개화된 부드러운 표면을 S라 하자. 함수 $F(x,y,z)=(f_1,f_2,f_3)$가 S 위에서의 연속 함수라고 하자. $F \cdot N$을 선속이라고 한다.
-\end{definition}
-선속의 표면적분은 다음과 같다.
+\begin{definition}[3차원 벡터장의 선속]
+부드럽게 유계인 $D$ 위에서 정의된 $X:D\to\R^3$에 의해 매개화된 부드러운 표면을 S라 하자. 함수 $F(x,y,z)=(f_1,f_2,f_3)$가 $S$ 위에서의 연속 함수라고 하자. $F \cdot N$의 표면 $S$에 대한 적분을 선속(flux)이라고 한다. 즉,
 \begin{align*}
 \int_S F\cdot N \dd \sigma
 &= \int_D F(X(u,v))\cdot N(X(u,v))||(X_u\times X_v)||\dd u\dd v\\
 &= \int_D F(X(u,v))\cdot(X_u\times X_v)\dd u\dd v    
 \end{align*}
+\end{definition}
