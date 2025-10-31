@@ -21,7 +21,7 @@ Any suggestions for improvement are welcome.
 | 6 | Chapter 3.5, 4.1, 4.2, 4.3, 4.4 | [week 6](https://github.com/nyeoglya/math102-smp/blob/main/materials/week6.pdf) |
 | 7 | Midterm Mock | [midmock](https://github.com/nyeoglya/math102-smp/blob/main/materials/midmock.pdf) |
 | 8 | No SMP | x |
-| 9 |  |  |
+| 9 | Chapter 6.1, 6.2, 6.3, 6.4 | [week 9](https://github.com/nyeoglya/math102-smp/blob/main/materials/week9.pdf) |
 | 10 |  |  |
 | 11 |  |  |
 | 12 |  |  |
