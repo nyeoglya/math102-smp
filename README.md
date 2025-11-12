@@ -22,7 +22,7 @@ Any suggestions for improvement are welcome.
 | 7 | Midterm Mock | [midmock](https://github.com/nyeoglya/math102-smp/blob/main/materials/midmock.pdf) |
 | 8 | No SMP | x |
 | 9 | Chapter 6.1, 6.2, 6.3, 6.4 | [week 9](https://github.com/nyeoglya/math102-smp/blob/main/materials/week9.pdf) |
-| 10 |  |  |
+| 10 | Chapter 6.5, 7.1 | [week 10](https://github.com/nyeoglya/math102-smp/blob/main/materials/week10.pdf) |
 | 11 |  |  |
 | 12 |  |  |
 | 13 |  |  |
