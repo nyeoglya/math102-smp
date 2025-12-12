@@ -11,6 +11,7 @@ Please note that this document may contains some errors. Also, it does not cover
 Any suggestions for improvement are welcome.
 
 ### Current Progress
+
 | Week | Progress | Materials |
 |---|---|---|
 | 1 | No SMP | x |
@@ -26,10 +27,12 @@ Any suggestions for improvement are welcome.
 | 11 | Chapter 7.2, 7.3 | [week 11](https://github.com/nyeoglya/math102-smp/blob/main/materials/week11.pdf) |
 | 12 | Chapter 8.1, 8.2 | x |
 | 13 | Chapter 8.3, Problem Solving 1 | [week 13](https://github.com/nyeoglya/math102-smp/blob/main/materials/week13.pdf) |
+| 14 | Problem Solving 2 | x |
+| 15 | Final Exam Mock | [finalmock](https://github.com/nyeoglya/math102-smp/blob/main/materials/finalmock.pdf), [finalmock-sol](https://github.com/nyeoglya/math102-smp/blob/main/materials/finalmock-sol.pdf) |
+| 16 | No SMP |
 
 ### Remaining Schedules
+
 | Week | Schedule |
 |---|---|
-| 14 | Problem Solving 2 |
-| 15 | Final Exam Mock |
-| 16 | No SMP |
+| End of the semester | No remaining schedule |
